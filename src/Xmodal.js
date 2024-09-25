@@ -46,75 +46,78 @@ const Xmodal = () => {
 
   return (
     <div className="modal-container">
-        <h1>User Details Modal</h1>
-      {/* Button to open the modal */}
-      <button onClick={openModal} className="open-form-button">Open Form</button>
+    <h1>User Details Modal</h1>
 
-      {/* Modal Content */}
-      {isOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Fill Details</h2>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label>Username:</label>
-                <br/>
-                <input
-                  id="username"
-                  type="text"
-                  value={formData.username}
-                  onChange={handleChange}
-                />
-                {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
-              </div>
+    {/* Button to open the modal */}
+    <button onClick={openModal} className="open-form-button">Open Form</button>
+
+    {/* Modal Content */}
+    {isOpen && (
+      <div className="modal" onClick={closeModal}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <h2>Fill Details</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>Username:</label>
               <br/>
+              <input
+                id="username"
+                type="text"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="Enter your username"
+              />
+              {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
+            </div>
+            <br/>
 
-              <div>
-                <label>Email Address:</label>
-                <br/>
-                <input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-              </div>
+            <div>
+              <label>Email Address:</label>
               <br/>
+              <input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+              />
+              {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
+            </div>
+            <br/>
 
-              <div>
-                <label>Phone Number:</label>
-                <br/>
-                <input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
-                {errors.phone && <p style={{ color: 'red' }}>{errors.phone}</p>}
-              </div>
+            <div>
+              <label>Phone Number:</label>
               <br/>
+              <input
+                id="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Enter your 10-digit phone number"
+              />
+              {errors.phone && <p style={{ color: 'red' }}>{errors.phone}</p>}
+            </div>
+            <br/>
 
-              <div>
-                <label>Date of Birth:</label>
-                <br/>
-                <input
-                  id="dob"
-                  type="date"
-                  value={formData.dob}
-                  placeholder='dd-mm-yyyy'
-                  onChange={handleChange}
-                />
-                {errors.dob && <p style={{ color: 'red' }}>{errors.dob}</p>}
-              </div>
+            <div>
+              <label>Date of Birth:</label>
               <br/>
+              <input
+                id="dob"
+                type="date"
+                value={formData.dob}
+                onChange={handleChange}
+              />
+              {errors.dob && <p style={{ color: 'red' }}>{errors.dob}</p>}
+            </div>
+            <br/>
 
-              <button type="submit" className="submit-button">Submit</button>
-            </form>
-          </div>
+            <button type="submit" className="submit-button">Submit</button>
+          </form>
         </div>
-      )}
-    </div>
+      </div>
+    )}
+  </div>
   );
 };
 
